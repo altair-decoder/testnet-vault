@@ -5,6 +5,7 @@ import { updateAccountData, disconnect } from "../features/blockchain";
 import { ethers, utils } from "ethers";
 import { Modal } from "react-bootstrap";
 import Web3Modal from "web3modal";
+// import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 import networks from "../utils/networksMap.json";
 import { supportNetwork } from "../utils/supportNetwork.js";
@@ -18,23 +19,23 @@ function Connect() {
   const data = useSelector((state) => state.blockchain.value);
   const supportChain = supportNetwork();
 
-  const [injectedProvider, setInjectedProvider] = useState();
+  const [injectedProvider, setInjectedProvider] = useState(null);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  async function fetchAccountData() {
+  async function fetchAccountData(error) {
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
+    // console.log(provider)
 
     const signer = provider.getSigner();
     const providerNetwork = await provider.getNetwork();
     // const chainId = await providerNetwork.chainId;
     const account = await signer.getAddress();
     const balance = await signer.getBalance();
-    // console.log(providerNetwork.chainId);
     if (window.ethereum !== "undifined") {
       setInjectedProvider(provider);
       dispatch(
