@@ -43,14 +43,14 @@ const Piechart = () => {
               }
             },
             { 
-              value: 15,
+              value: 35,
               name: 'Ecosystem Partner', 
               label: {
                 color: "rgba(255, 255, 255, 1)"
               }
             },
             { 
-              value: 30, 
+              value: 10, 
               name: 'Initial Liquidity',
               label: {
                 color: "rgba(255, 255, 255, 1)"
