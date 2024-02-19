@@ -37,10 +37,10 @@ function Faq() {
             <div className="faq__content">
               <p>The initial supply is 21 million $FRC.</p>
               <p>And the allocation is as follows:</p>
-              <p>- 40% for Public Sale</p>
-              <p>- 15% for Ecosystem & Future Partner</p>
-              <p>- 30% for Initial Liquidity, and locked for 10 years</p>
-              <p>- 10% for Airdrop</p>
+              <p>- 30% for Public Sale</p>
+              <p>- 45% for Ecosystem & Future Partner</p>
+              <p>- 8% for Initial Liquidity, and locked for 10 years</p>
+              <p>- 12% for Airdrop</p>
               <p>- 5% for Foundation Long-term Endowment.</p>
             </div>
           </details>
