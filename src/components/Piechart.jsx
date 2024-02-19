@@ -36,28 +36,28 @@ const Piechart = () => {
           radius: '70%',
           data: [
             { 
-              value: 40,
+              value: 30,
               name: 'Public Sale', 
               label: {
                 color: "rgba(255, 255, 255, 1)"
               }
             },
             { 
-              value: 35,
+              value: 45,
               name: 'Ecosystem Partner', 
               label: {
                 color: "rgba(255, 255, 255, 1)"
               }
             },
             { 
-              value: 10, 
+              value: 8, 
               name: 'Initial Liquidity',
               label: {
                 color: "rgba(255, 255, 255, 1)"
               }
             },
             { 
-              value: 10, 
+              value: 12, 
               name: 'Airdrop',
               label: {
                 color: "rgba(255, 255, 255, 1)"
