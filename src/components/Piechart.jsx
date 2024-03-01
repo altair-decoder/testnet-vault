@@ -10,7 +10,7 @@ const Piechart = () => {
     const options = {
       title: {
         // text: 'TOKENOMIC ALOCATION',
-        // subtext: 'Fake Data',
+        // subtext: '-',
         left: 'center',
         textStyle: {
           fontSize: 30,
@@ -22,9 +22,10 @@ const Piechart = () => {
         formatter: '{a} <br/>{b}: {c}%',
       },
       legend: {
-        orient: 'vertical',
+        orient: 'horizontal',
         left: 'left',
         textStyle: {
+          fontSize:12,
           color: "rgba(255, 255, 255, 1)"
         }
       },
@@ -35,21 +36,28 @@ const Piechart = () => {
           radius: '70%',
           data: [
             { 
-              value: 70,
+              value: 30,
               name: 'Public Sale', 
               label: {
                 color: "rgba(255, 255, 255, 1)"
               }
             },
             { 
-              value: 15, 
+              value: 45,
+              name: 'Ecosystem Partner', 
+              label: {
+                color: "rgba(255, 255, 255, 1)"
+              }
+            },
+            { 
+              value: 8, 
               name: 'Initial Liquidity',
               label: {
                 color: "rgba(255, 255, 255, 1)"
               }
             },
             { 
-              value: 10, 
+              value: 12, 
               name: 'Airdrop',
               label: {
                 color: "rgba(255, 255, 255, 1)"

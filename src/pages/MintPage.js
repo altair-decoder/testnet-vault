@@ -127,8 +127,8 @@ function MintPage() {
       // console.log(unstaketokenOfAddress);
       tokenOfAddress = tokenOfAddress.concat(stakedTokens).sort();
       setInfo({
-        nftName: "Stakeable Nft",
-        nftSymbol: "XNFT",
+        nftName: "Flappyowl - Test",
+        nftSymbol: "0,0",
         nftUserBalance: nftUserBalance,
         currentSupply: Number(totalSupply),
         maxSupply: Number(maxSupply),
@@ -462,7 +462,7 @@ function MintPage() {
                         {info.totalReward !== 0
                           ? parseFloat(info.totalReward).toFixed(6)
                           : 0}{" "}
-                        $SRC
+                        $FRC
                       </td>
                     </tr>
                   </tbody>

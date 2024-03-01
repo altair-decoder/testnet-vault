@@ -8,19 +8,30 @@ import stakingContract from "../artifacts/utils/FlappyOwlVault.sol/FlappyOwlVaul
 import {
   vaultContractAddress,
   nftContractAddress,
+  // networkDeployedTo
 } from "../utils/contracts-config";
 
+// const eth = window.ethereum;
+// let web3Modal = new Web3Modal();
+
 function Hero() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [recentlyMintedNFTs, setRecentlyMintedNFTs] = useState([]);
+  const [isLoading, _setIsLoading] = useState(true);
+  const [recentlyMintedNFTs, _setRecentlyMintedNFTs] = useState([]);
   const [totalStakedNft, _setTotalStakedNft] = useState(0);
 
+
+  
   useEffect(() => {
+    // const provider = new ethers.providers.Web3Provider(
+    //   window.ethereum,
+    //   "any"
+    // );
+  
     async function getRecentlyMintedNFTs() {
       const provider = new ethers.providers.Web3Provider(
         window.ethereum,
         "any"
-      );
+        );
 
       const nft_contract = new ethers.Contract(
         nftContractAddress,
@@ -43,11 +54,11 @@ function Hero() {
       // setLastMintedNFT(lastMintedTokenURI);
 
       // Get the last 10 minted NFTs
-      const numberOfNFTsToFetch = 10;
+      const numberOfNFTsToFetch = Number(totalSupply) < 10 ? Number(totalSupply) : 10;
       const lastMintedNFTs = [];
       for (
-        let i = totalSupply - 1;
-        i >= Math.max(totalSupply - numberOfNFTsToFetch, 0);
+        let i = Number(totalSupply) - 1;
+        i >= Math.max(Number(totalSupply) - numberOfNFTsToFetch, 0);
         i--
       ) {
         const tokenURI = await nft_contract.tokenURI(i);
@@ -60,9 +71,11 @@ function Hero() {
           nftName: jsonMetadata.name,
         });
       }
-      setRecentlyMintedNFTs(lastMintedNFTs.reverse());
-      setIsLoading(false);
+      // console.log(numberOfNFTsToFetch)
+      _setRecentlyMintedNFTs(lastMintedNFTs.reverse());
+      _setIsLoading(false);
     }
+
     getRecentlyMintedNFTs();
   }, []);
   return (

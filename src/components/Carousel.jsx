@@ -5,6 +5,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import "../assets/styles.css";
 
 const Carousel = ({ images }) => {
+    const totalImg = images.length;
+    // console.log(images.length)
     const settings = {
         dots: true,
         infinite: true,
@@ -18,21 +20,21 @@ const Carousel = ({ images }) => {
             {
                 breakpoint: 5000,
                 settings: {
-                    slidesToShow: 5,
+                    slidesToShow: Number(totalImg)?5:Number(totalImg),
                     slidesToScroll: 1,
                 },
             },
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: Number(totalImg)?3:Number(totalImg),
                     slidesToScroll: 1,
                 },
             },
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: Number(totalImg)?2:Number(totalImg),
                     slidesToScroll: 1,
                 },
             },
@@ -57,7 +59,7 @@ const Carousel = ({ images }) => {
                     alt={`Slide ${index}`} 
                     className="item-img-hero"
                     />
-                    <div className="mb-6"><h4 className="text-[#fff]">{image.nftName}</h4></div>
+                    <div className="mb-6 sm:text-sm md:text-sm lg:text-md"><h4 className="text-[#fff]">{image.nftName}</h4></div>
                 </div>
             ))}
         </Slider>
